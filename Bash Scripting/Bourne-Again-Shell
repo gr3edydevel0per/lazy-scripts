@@ -1,0 +1,100 @@
+When we first run the bash it will run a startup script 
+.bash_rc or .bash_profile  [used for changing the behaviour and appearence of the shell]
+
+every bash script has a .sh extension or there is no extension for script file
+
+#! is known as Shebang or HashBang
+it is followed by path to the bash in which the script is written
+
+Commands of script file are interpreted line by line
+
+& - adding this in a command will execute the command in background with interrupting the other commands
+
+
+--------------------------------------------------
+       Permission System in Linux                 
+--------------------------------------------------
+- --- --- ---
+   U   G  O 
+
+U - User                  if first bit is '-' then it is a file 
+G - Group                 else it will have 'd' which specifies directory
+O - Other
+
+   ---
+   rwx    read - write - executable
+   ---
+0  000
+1  001
+2  010
+3  011
+4  100
+5  101
+6  110
+7  111
+
+Giving permission to a file  -   chown permissionBits fileName
+chown 465 textFile
+Here  4 6 0 :
+4 - 100   User will have the permission to read
+6 - 110   group will have r and w permission
+0 - 000   others will have no permission
+
+
+
+Variables
+- variable name have to be in upper case
+- Should not start with digit
+
+Reading user input 
+
+- Single variable
+read -p "Enter your name: " <VARIABLE NAME> 
+
+- Multiple variable
+echo "Enter your full name"
+read FNAME LNAME
+
+
+- Conditionals
+
+if [condition] ;
+then
+    condition
+fi
+
+
+echo "$( ... )" -> This part of the command takes the output of the ls command and
+passes it to the echo command. The $() is used for command substitution, meaning 
+it runs the command inside the parentheses and substitutes its output in place. 
+The echo command then prints this output to the terminal.
+
+
+- Loops
+for VARIABLE in $(); do
+    task
+done
+
+
+======================================================
+seq 0 254 - generating sequence 
+======================================================
+
+-Functions 
+function FUNCTION_NAME(){
+    #CODE
+}
+
+FUNCTION_NAME
+
+=======================================================
+- Positional Argument
+./ScriptName  arg1 arg2 arg3
+
+In script 
+
+$0 - script name
+$1 - arg1
+$@ - arg2 and so on
+
+=======================================================
