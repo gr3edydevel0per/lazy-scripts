@@ -1,0 +1,32 @@
+#! /bin/bash
+
+
+
+echo "========================================================="
+echo "$(figlet Find Me Here)"
+echo "========================================================="
+
+if [ "$1" == "" ];
+then 
+  echo "Script Usage:"
+  echo "_________________________________"
+  echo "| adddns -a ipaddress hostname  |"
+  echo "| adddns -d ipaddress           |"
+  echo "---------------------------------" 
+fi
+
+
+
+if [ "$1" == "-a" ];
+then
+  echo "Adding DNS Entry"
+  echo "$2 $3" >> /etc/hosts
+  echo "DNS Entry Added"
+fi
+
+if [ "$1" == "-d" ];
+then
+  echo "Deleting DNS Entry"
+  sed -i "/$2/d" /etc/hosts
+  echo "DNS Entry Deleted"
+fi
